@@ -82,8 +82,11 @@ header {
             .sp_navi {
                 font-size: 0;
                 text-align: center;
+                position: relative;
             }
             @media (min-width: 550px) {
+
+
                 .sp_navi {
                     display: none;
                     ul {
@@ -91,14 +94,14 @@ header {
 
                         /* ★これを追加、それ以外は上記と全く同じ */
                         font-size: 0;
-                        text-align: center;
+                        text-align: center; // li {
+                        //     display:block;
+                        // }
                     }
 
                 }
             }
-            .sp_menu_toggle {
-                display: none;
-            }
+
 
             @media (max-width: 549px) {
                 .pc_navi {
@@ -119,7 +122,6 @@ header {
             li {
                 font-size: 12px;
                 margin: 6px;
-                padding: 5px;
                 display: inline-block;
                 box-sizing: border-box;
             }
@@ -270,6 +272,29 @@ header {
 
 } // min-width: 550px
 // header
+.sp_menu_toggle {
+    display: none;
+    background-color: #ff6d77;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    top: 160px;
+
+    li {
+        display: block;
+        border-bottom: 1px solid white;
+        margin: 25px;
+        font-size: 19px;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+    }
+
+}
+
 /**************************************/
 
 // 左コンテンツ
@@ -277,7 +302,7 @@ header {
     width: 20px;
     height: 2px;
     margin: 5px 7px;
-    background: #D6D6D6;
+    background: #869791;
     display: block;
     -webkit-backface-visibility: visible;
     transition: opacity .2s ease;
@@ -288,6 +313,10 @@ header {
 .owl-theme .owl-nav {
     text-align: left;
     -webkit-tap-highlight-color: transparent;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+    background: #9d2a1d !important;
 }
 
 .newitems {
@@ -489,6 +518,7 @@ header {
         background-repeat: no-repeat;
         background-position: 95% center;
         width: 100%;
+        font-size: 11px;
     }
 
     input.submit {
@@ -527,57 +557,89 @@ header {
         background-image: url(../images/top/next_icon_gray.png);
         background-repeat: no-repeat;
         background-position: 95% center;
+        font-size: 12px;
+
+    }
+
+}
+
+.aboutbox {
+    width: 100%;
+
+    .about {
+        background-color: #887f69;
+        padding: 10px;
+        margin-bottom: 0rem;
+    }
+    .aboutmain {
+        background-color: #fff;
+        .about_img {
+            background-color: #ffffff;
+            padding: 10px;
+
+            @media (max-width: 550px) {
+                float: left;
+                width: 50%;
+                padding: 1px;
+                margin: 8px;
+            }
+        }
+        .aboutnaiyou {
+            @media (max-width: 550px) {
+                float: right;
+                width: calc(50% - 18px);
+            }
+            .about_p {
+                background-color: #ffffff;
+                margin-bottom: 0rem;
+                font-size: 11px;
+                padding: 10px;
+            }
+            .more_btn {
+                text-align: center;
+                background-color: #ffffff;
+            }
+
+        }
     }
 }
 
-.about {
-    background-color: #887f69;
+.shopinfobox {
     width: 100%;
-
-    p {
+    .shopinfo {
         background-color: #887f69;
         padding: 10px;
         margin-bottom: 0rem;
     }
 
-    .about_img {
-        background-color: #ffffff;
-        padding: 10px;
-
-        p {
+    .shopinfomain {
+        background-color: #fff;
+        .shopinfo_img {
             background-color: #ffffff;
-            margin-bottom: 0rem;
-            font-size: 11px;
+            padding: 10px;
+            @media (max-width: 550px) {
+                float: left;
+                width: 50%;
+                padding: 1px;
+                margin: 8px;
+            }
         }
 
-        .more_btn {
-            text-align: center;
-        }
-    }
-}
+        .shopinfonaiyou {
+            @media (max-width: 550px) {
+                float: right;
+                width: calc(50% - 18px);
+            }
+            .shopinfo_p {
+                background-color: #ffffff;
+                margin-bottom: 0rem;
+                font-size: 11px;
+                padding: 10px;
+            }
 
-.shopinfo {
-    background-color: #887f69;
-    width: 100%;
-
-    p {
-        background-color: #887f69;
-        padding: 10px;
-        margin-bottom: 0rem;
-    }
-
-    .shopinfo_img {
-        background-color: #ffffff;
-        padding: 10px;
-
-        p {
-            background-color: #ffffff;
-            margin-bottom: 0rem;
-            font-size: 11px;
-        }
-
-        .more_btn {
-            text-align: center;
+            .more_btn {
+                text-align: center;
+            }
         }
     }
 } //フッター
@@ -630,20 +692,13 @@ header {
         list-style: none;
         color: #887f69;
     }
-
+    .pankuzu img {
+        margin-right: 10px;
+    }
     .pankuzu li:after {
         /* [/]を表示*/
         content: '/';
         padding: 0 3px;
-        color: #887f69;
-    }
-
-    .pankuzu li:first-child a:before {
-        /*家アイコン*/
-        font-family: FontAwesome;
-        content: '\f015';
-        font-weight: normal;
-        font-size: 1.1em;
         color: #887f69;
     }
 
@@ -652,6 +707,7 @@ header {
         color: #887f69;
         /*色*/
         font-size: 12px;
+        margin: 10px;
     }
 
     .pankuzu li a:hover {
@@ -702,9 +758,12 @@ header {
             text-align: center;
             line-height: -4.2;
             padding: 10px 10px;
-            width: 118px;
+            width: 21%;
             height: 24px;
 
+            @media (min-width: 550px) {
+                width: 33%;
+            } //sp用
         }
 
         .next {
@@ -714,8 +773,12 @@ header {
             text-align: center;
             line-height: -4.2;
             padding: 10px 10px;
-            width: 118px;
+            width: 21%;
             height: 24px;
+
+            @media (min-width: 550px) {
+                width: 33%;
+            } //sp用
         }
     }
 
@@ -731,8 +794,10 @@ header {
     .recent2 {
         text-align: center;
         padding: 7px;
+
         @media (min-width: 550px) {
             display: none;
+
         } //sp用
     }
 
@@ -782,7 +847,9 @@ header {
         list-style: none;
         color: #887f69;
     }
-
+    .pankuzu img {
+        margin-right: 10px;
+    }
     .pankuzu li:after {
         /* [/]を表示*/
         content: '/';
@@ -790,20 +857,13 @@ header {
         color: #887f69;
     }
 
-    .pankuzu li:first-child a:before {
-        /*家アイコン*/
-        font-family: FontAwesome;
-        content: '\f015';
-        font-weight: normal;
-        font-size: 1.1em;
-        color: #887f69;
-    }
 
     .pankuzu li a {
         text-decoration: none;
         color: #887f69;
         /*色*/
         font-size: 12px;
+        margin: 10px;
     }
 
     .pankuzu li a:hover {
@@ -993,6 +1053,13 @@ header {
             padding: 11px;
             text-align: center;
         }
+
+        td.size {
+            background-color: #f9f9f5;
+        }
+        label {
+            padding-top: 5px;
+        }
         input[type="radio"] {
             display: inline-block;
             -webkit-appearance: none;
@@ -1003,8 +1070,6 @@ header {
             background: transparent;
             opacity: 0.5;
             width: 100%;
-            margin-bottom: 0;
-            padding: 2px;
             margin: 1px;
             &:checked {
                 background: #887f69;
